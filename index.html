@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAD — Statystyczna Analiza Danych</title>
+  <meta name="description" content="Wykłady, konspekty i zadania ze Statystycznej Analizy Danych (PL / EN / RU).">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Theme is applied before first paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem('sad.theme'); } catch (e) { /* storage unavailable */ }
+      if (!theme) { theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- KaTeX (formulas). The site still works offline: formulas fall back to plain TeX. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+
+  <!-- Styles: tokens → base → blocks (BEM) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <!-- generic blocks first, so layout blocks can override them -->
+  <link rel="stylesheet" href="assets/css/blocks/btn.css">
+  <link rel="stylesheet" href="assets/css/blocks/segmented.css">
+  <link rel="stylesheet" href="assets/css/blocks/layout.css">
+  <link rel="stylesheet" href="assets/css/blocks/header.css">
+  <link rel="stylesheet" href="assets/css/blocks/sidebar.css">
+  <link rel="stylesheet" href="assets/css/blocks/page.css">
+  <link rel="stylesheet" href="assets/css/blocks/prose.css">
+  <link rel="stylesheet" href="assets/css/blocks/callout.css">
+  <link rel="stylesheet" href="assets/css/blocks/badge.css">
+  <link rel="stylesheet" href="assets/css/blocks/code-block.css">
+  <link rel="stylesheet" href="assets/css/blocks/data-table.css">
+  <link rel="stylesheet" href="assets/css/blocks/chart.css">
+  <link rel="stylesheet" href="assets/css/blocks/toc.css">
+  <link rel="stylesheet" href="assets/css/blocks/action-bar.css">
+  <link rel="stylesheet" href="assets/css/blocks/card.css">
+  <link rel="stylesheet" href="assets/css/blocks/task.css">
+  <link rel="stylesheet" href="assets/css/blocks/cheatsheet.css">
+  <link rel="stylesheet" href="assets/css/blocks/pager.css">
+  <link rel="stylesheet" href="assets/css/blocks/form.css">
+  <link rel="stylesheet" href="assets/css/blocks/rules.css">
+  <link rel="stylesheet" href="assets/css/blocks/footer.css">
+  <link rel="stylesheet" href="assets/css/print.css" media="print">
+</head>
+<body class="app">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="header" id="header">
+    <button class="btn btn--icon header__menu" type="button" id="menu-toggle" aria-controls="sidebar" aria-expanded="false">
+      <span class="header__menu-icon" aria-hidden="true"></span>
+      <span class="visually-hidden" data-i18n="btn.menu">Menu</span>
+    </button>
+    <a class="header__brand" href="#/">
+      <span class="header__logo" aria-hidden="true">σ</span>
+      <span class="header__titles">
+        <span class="header__title">SAD</span>
+        <span class="header__subtitle" data-i18n="site.subtitle">Statystyczna Analiza Danych</span>
+      </span>
+    </a>
+    <div class="header__tools">
+      <div class="segmented header__lang" role="group" id="lang-switch" aria-label="Language">
+        <button class="segmented__item" type="button" data-lang="pl" lang="pl">PL</button>
+        <button class="segmented__item" type="button" data-lang="en" lang="en">EN</button>
+        <button class="segmented__item" type="button" data-lang="ru" lang="ru">RU</button>
+      </div>
+      <button class="btn btn--icon header__theme" type="button" id="theme-toggle">
+        <span class="header__theme-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" data-i18n="theme.toggle">Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar layout__sidebar" id="sidebar" aria-label="Main"></nav>
+    <div class="layout__backdrop" id="backdrop" hidden></div>
+    <div class="layout__content">
+      <main class="layout__main" id="main" tabindex="-1">
+        <div class="page page--loading" id="view"></div>
+      </main>
+      <footer class="footer" id="footer"></footer>
+    </div>
+  </div>
+
+  <dialog class="cheatsheet" id="cheatsheet" aria-labelledby="cheatsheet-title"></dialog>
+
+  <!-- Core -->
+  <script src="assets/js/core/namespace.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/i18n.js"></script>
+  <script src="assets/js/core/theme.js"></script>
+  <script src="assets/js/core/loader.js"></script>
+  <script src="assets/js/core/router.js"></script>
+  <!-- Libraries -->
+  <script src="assets/js/lib/stats.js"></script>
+  <script src="assets/js/lib/highlight.js"></script>
+  <script src="assets/js/lib/markup.js"></script>
+  <script src="assets/js/lib/math.js"></script>
+  <!-- Components -->
+  <script src="assets/js/components/code-block.js"></script>
+  <script src="assets/js/components/charts.js"></script>
+  <script src="assets/js/components/cheatsheet.js"></script>
+  <script src="assets/js/components/tasks.js"></script>
+  <script src="assets/js/components/widgets.js"></script>
+  <script src="assets/js/components/sidebar.js"></script>
+  <!-- Always-needed data (topic files are loaded on demand) -->
+  <script src="assets/js/data/ui.js"></script>
+  <script src="assets/js/data/topics.js"></script>
+  <script src="assets/js/data/pages/home.js"></script>
+  <script src="assets/js/data/pages/course.js"></script>
+  <script src="assets/js/data/pages/tables.js"></script>
+  <script src="assets/js/data/pages/tips.js"></script>
+  <script src="assets/js/data/pages/excel.js"></script>
+  <script src="assets/js/data/pages/about.js"></script>
+  <!-- Pages -->
+  <script src="assets/js/pages/home.js"></script>
+  <script src="assets/js/pages/topic.js"></script>
+  <script src="assets/js/pages/exercises.js"></script>
+  <script src="assets/js/pages/course.js"></script>
+  <script src="assets/js/pages/colloquium.js"></script>
+  <script src="assets/js/pages/tables.js"></script>
+  <script src="assets/js/pages/static.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

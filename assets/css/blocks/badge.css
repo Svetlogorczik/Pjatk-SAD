@@ -1,0 +1,53 @@
+/* Block: badge — small inline markers (author's addition, from lecture, sources) */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.08rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.badge--own {
+  border-color: color-mix(in srgb, var(--callout-own) 45%, transparent);
+  background: var(--callout-own-bg);
+  color: var(--callout-own);
+}
+
+.badge--lecture {
+  border-color: color-mix(in srgb, var(--callout-def) 40%, transparent);
+  background: var(--callout-def-bg);
+  color: var(--callout-def);
+}
+
+.badge--ok {
+  border-color: color-mix(in srgb, var(--color-success) 45%, transparent);
+  color: var(--color-success);
+  background: transparent;
+}
+
+.badge--warn {
+  border-color: color-mix(in srgb, var(--callout-warn) 45%, transparent);
+  color: var(--callout-warn);
+  background: transparent;
+}
+
+.badge--doc {
+  border-color: color-mix(in srgb, var(--callout-summary) 45%, transparent);
+  color: var(--callout-summary);
+  background: transparent;
+}
+
+h2 .badge,
+h3 .badge {
+  margin-left: var(--space-2);
+  font-size: 0.72rem;
+}

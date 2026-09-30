@@ -1,0 +1,59 @@
+/* Block: data-table — tables in lectures, statistical tables, rules */
+
+.data-table {
+  margin: var(--space-4) 0 var(--space-5);
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.data-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table__table th,
+.data-table__table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table__table thead th {
+  background: var(--color-surface-2);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.data-table__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table__table tbody tr:hover {
+  background: color-mix(in srgb, var(--color-accent-soft) 45%, transparent);
+}
+
+.data-table--compact .data-table__table th,
+.data-table--compact .data-table__table td {
+  padding: 0.28rem 0.45rem;
+  text-align: right;
+}
+
+.data-table--compact .data-table__table th:first-child,
+.data-table--compact .data-table__table td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--color-surface-2);
+  font-weight: 700;
+  text-align: center;
+}
+
+.data-table__cell--hl {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 700;
+}

@@ -1,0 +1,117 @@
+/* Block: callout — highlighted boxes (definition, note, tip, warning, example, author's addition…) */
+
+.callout {
+  --c-accent: var(--callout-note);
+  --c-bg: var(--callout-note-bg);
+  margin: var(--space-5) 0;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--c-accent) 28%, transparent);
+  border-left: 4px solid var(--c-accent);
+  border-radius: var(--radius-md);
+  background: var(--c-bg);
+}
+
+.callout__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.callout__label {
+  color: var(--c-accent);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.callout__title {
+  font-weight: 700;
+}
+
+.callout__body > :last-child {
+  margin-bottom: 0;
+}
+
+.callout__body > :first-child {
+  margin-top: 0;
+}
+
+.callout--def { --c-accent: var(--callout-def); --c-bg: var(--callout-def-bg); }
+.callout--note { --c-accent: var(--callout-note); --c-bg: var(--callout-note-bg); }
+.callout--tip { --c-accent: var(--callout-tip); --c-bg: var(--callout-tip-bg); }
+.callout--warn { --c-accent: var(--callout-warn); --c-bg: var(--callout-warn-bg); }
+.callout--example { --c-accent: var(--callout-example); --c-bg: var(--callout-example-bg); }
+.callout--own { --c-accent: var(--callout-own); --c-bg: var(--callout-own-bg); border-style: dashed solid dashed solid; }
+.callout--intuition { --c-accent: var(--callout-intuition); --c-bg: var(--callout-intuition-bg); }
+.callout--formula { --c-accent: var(--callout-formula); --c-bg: var(--callout-formula-bg); }
+.callout--summary { --c-accent: var(--callout-summary); --c-bg: var(--callout-summary-bg); }
+.callout--steps { --c-accent: var(--callout-def); --c-bg: var(--color-surface); }
+
+.callout--formula .callout__body {
+  font-size: 1.02em;
+}
+
+.callout--steps ol {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout--steps ol > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.2em;
+}
+
+.callout--steps ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  display: grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: var(--color-surface);
+  font-size: 0.8em;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .callout {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+.callout__toggle {
+  display: none;
+  margin-left: auto;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--c-accent) 40%, transparent);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--c-accent);
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .callout--collapsible .callout__toggle {
+    display: inline-flex;
+  }
+
+  .callout--collapsible:not(.is-open) .callout__head {
+    margin-bottom: 0;
+  }
+
+  .callout--collapsible:not(.is-open) .callout__body {
+    display: none;
+  }
+}

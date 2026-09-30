@@ -1,0 +1,123 @@
+/* Block: task — an exercise card with hint / solution reveals */
+
+.task {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.task__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.task__num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+}
+
+.task__title {
+  margin: 0;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-tight);
+}
+
+.task__points {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.task__body > :last-child {
+  margin-bottom: 0;
+}
+
+.task__reveal {
+  margin-top: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.task__reveal > summary {
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  list-style: none;
+}
+
+.task__reveal > summary::-webkit-details-marker {
+  display: none;
+}
+
+.task__reveal > summary::before {
+  content: "\25B8";
+  display: inline-block;
+  width: 1.1em;
+  transition: transform var(--transition);
+}
+
+.task__reveal[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.task__reveal--hint > summary { color: var(--callout-warn); }
+.task__reveal--solution > summary { color: var(--callout-tip); }
+
+.task__reveal-body {
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.task__reveal-body > :last-child {
+  margin-bottom: 0;
+}
+
+.task__answer {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--callout-tip-bg);
+  border-left: 4px solid var(--callout-tip);
+}
+
+.task__answer-label {
+  display: block;
+  color: var(--callout-tip);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.task__answer > :last-child {
+  margin-bottom: 0;
+}
+
+.task-list__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+@media (max-width: 600px) {
+  .task {
+    padding: var(--space-4);
+  }
+}

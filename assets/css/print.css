@@ -1,0 +1,58 @@
+/* Print: lectures print without chrome; an open cheat sheet prints alone */
+
+.header,
+.sidebar,
+.footer,
+.action-bar,
+.pager,
+.toc,
+.code-block__tools,
+.skip-link,
+.layout__backdrop {
+  display: none !important;
+}
+
+.layout {
+  display: block;
+}
+
+.layout__main {
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  color: #000;
+}
+
+.callout,
+.code-block,
+.chart,
+.task {
+  break-inside: avoid;
+}
+
+.task__reveal {
+  display: none;
+}
+
+body.is-printing-cheatsheet > *:not(.cheatsheet) {
+  display: none !important;
+}
+
+body.is-printing-cheatsheet .cheatsheet {
+  position: static;
+  display: block;
+  width: auto;
+  max-height: none;
+  border: 0;
+  box-shadow: none;
+}
+
+body.is-printing-cheatsheet .cheatsheet__tools {
+  display: none;
+}
+
+body.is-printing-cheatsheet .cheatsheet__body {
+  overflow: visible;
+}

@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Design tokens. Light theme is the default; dark theme is applied through
+   [data-theme="dark"] (set by assets/js/core/theme.js) and — when the user
+   has not chosen explicitly — through prefers-color-scheme.
+   ========================================================================== */
+
+:root {
+  /* typography */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: clamp(1.8rem, 1.3rem + 2vw, 2.4rem);
+  --lh-body: 1.7;
+  --lh-tight: 1.25;
+
+  /* spacing & shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --header-h: 60px;
+  --sidebar-w: 290px;
+  --content-w: 820px;
+  --transition: 160ms ease;
+
+  /* light palette */
+  --color-bg: #f6f6f2;
+  --color-surface: #ffffff;
+  --color-surface-2: #efefe9;
+  --color-surface-3: #e6e6df;
+  --color-text: #1c1e22;
+  --color-text-muted: #5b616c;
+  --color-border: #deded6;
+  --color-border-strong: #c7c7be;
+  --color-accent: #3451d1;
+  --color-accent-hover: #2940b0;
+  --color-accent-soft: #e7ecff;
+  --color-accent-contrast: #ffffff;
+  --color-link: #2a48c7;
+  --color-focus: #f59e0b;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+  --shadow-sm: 0 1px 2px rgba(20, 20, 30, 0.06), 0 1px 1px rgba(20, 20, 30, 0.04);
+  --shadow-md: 0 6px 24px rgba(20, 20, 40, 0.10);
+  --shadow-lg: 0 20px 60px rgba(10, 10, 30, 0.25);
+
+  /* callouts: border / background / label */
+  --callout-def: #2563eb;       --callout-def-bg: #eef4ff;
+  --callout-note: #64748b;      --callout-note-bg: #f2f5f8;
+  --callout-tip: #15803d;       --callout-tip-bg: #edf9f0;
+  --callout-warn: #c2410c;      --callout-warn-bg: #fff4e8;
+  --callout-example: #0f766e;   --callout-example-bg: #eaf8f6;
+  --callout-own: #7c3aed;       --callout-own-bg: #f5f0ff;
+  --callout-intuition: #be185d; --callout-intuition-bg: #fdf0f6;
+  --callout-formula: #3451d1;   --callout-formula-bg: #f3f5ff;
+  --callout-summary: #0369a1;   --callout-summary-bg: #ecf6fc;
+
+  /* code */
+  --code-bg: #f6f8fa;
+  --code-border: #e1e4e8;
+  --code-text: #24292f;
+  --code-inline-bg: #eceef1;
+  --syntax-keyword: #cf222e;
+  --syntax-string: #0a3069;
+  --syntax-number: #0550ae;
+  --syntax-func: #8250df;
+  --syntax-comment: #6e7781;
+  --syntax-cell: #116329;
+  --syntax-op: #953800;
+
+  /* charts */
+  --chart-1: #3451d1;
+  --chart-2: #e8590c;
+  --chart-3: #0ca678;
+  --chart-4: #d6336c;
+  --chart-5: #7048e8;
+  --chart-6: #f59f00;
+  --chart-7: #1098ad;
+  --chart-8: #868e96;
+  --chart-axis: #6b717c;
+  --chart-grid: #e7e7e0;
+  --chart-shade: rgba(52, 81, 209, 0.22);
+  --chart-shade-2: rgba(232, 89, 12, 0.24);
+
+  color-scheme: light;
+}
+
+/* Explicit dark theme */
+:root[data-theme="dark"] {
+  --color-bg: #0f1116;
+  --color-surface: #171a21;
+  --color-surface-2: #1e222b;
+  --color-surface-3: #262b36;
+  --color-text: #e7e9ee;
+  --color-text-muted: #a3aab7;
+  --color-border: #2b303b;
+  --color-border-strong: #3a404d;
+  --color-accent: #8da2ff;
+  --color-accent-hover: #a9b9ff;
+  --color-accent-soft: #1e2542;
+  --color-accent-contrast: #0f1116;
+  --color-link: #9fb1ff;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.6);
+
+  --callout-def: #6ea0ff;       --callout-def-bg: #151e33;
+  --callout-note: #94a3b8;      --callout-note-bg: #1a2029;
+  --callout-tip: #4ade80;       --callout-tip-bg: #12241a;
+  --callout-warn: #fb923c;      --callout-warn-bg: #2a1c10;
+  --callout-example: #2dd4bf;   --callout-example-bg: #0f2427;
+  --callout-own: #b794f6;       --callout-own-bg: #211a33;
+  --callout-intuition: #f472b6; --callout-intuition-bg: #2a1622;
+  --callout-formula: #8da2ff;   --callout-formula-bg: #181e36;
+  --callout-summary: #38bdf8;   --callout-summary-bg: #0f2130;
+
+  --code-bg: #0d1117;
+  --code-border: #262c36;
+  --code-text: #e6edf3;
+  --code-inline-bg: #252a34;
+  --syntax-keyword: #ff7b72;
+  --syntax-string: #a5d6ff;
+  --syntax-number: #79c0ff;
+  --syntax-func: #d2a8ff;
+  --syntax-comment: #8b949e;
+  --syntax-cell: #7ee787;
+  --syntax-op: #ffa657;
+
+  --chart-1: #8da2ff;
+  --chart-2: #ff922b;
+  --chart-3: #38d9a9;
+  --chart-4: #f783ac;
+  --chart-5: #b197fc;
+  --chart-6: #ffd43b;
+  --chart-7: #66d9e8;
+  --chart-8: #adb5bd;
+  --chart-axis: #9aa1ad;
+  --chart-grid: #262b35;
+  --chart-shade: rgba(141, 162, 255, 0.28);
+  --chart-shade-2: rgba(255, 146, 43, 0.28);
+
+  color-scheme: dark;
+}
+
+/* Follow the OS when the page has no explicit choice (e.g. storage blocked) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --color-bg: #0f1116;
+    --color-surface: #171a21;
+    --color-surface-2: #1e222b;
+    --color-text: #e7e9ee;
+    --color-text-muted: #a3aab7;
+    --color-border: #2b303b;
+    --color-accent: #8da2ff;
+    --color-link: #9fb1ff;
+    --code-bg: #0d1117;
+    --code-text: #e6edf3;
+    color-scheme: dark;
+  }
+}

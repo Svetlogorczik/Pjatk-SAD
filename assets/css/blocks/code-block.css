@@ -1,0 +1,81 @@
+/* Block: code-block — syntax-highlighted, copyable code (Excel EN/PL, Python) */
+
+.code-block {
+  margin: var(--space-5) 0;
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-md);
+  background: var(--code-bg);
+  overflow: hidden;
+}
+
+.code-block__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--code-border);
+  background: color-mix(in srgb, var(--code-bg) 80%, var(--color-surface-2));
+  font-size: var(--fs-xs);
+}
+
+.code-block__lang {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.code-block__title {
+  color: var(--code-text);
+  font-weight: 600;
+}
+
+.code-block__tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.code-block__pre {
+  margin: 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  color: var(--code-text);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  tab-size: 4;
+}
+
+.code-block__pre[hidden] {
+  display: none;
+}
+
+.code-block__code {
+  font-family: inherit;
+  white-space: pre;
+}
+
+.code-block__note {
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--code-border);
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+}
+
+.code-block__copy.is-copied {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+/* syntax tokens */
+.tok--kw { color: var(--syntax-keyword); }
+.tok--str { color: var(--syntax-string); }
+.tok--num { color: var(--syntax-number); }
+.tok--fn { color: var(--syntax-func); font-weight: 600; }
+.tok--com { color: var(--syntax-comment); font-style: italic; }
+.tok--cell { color: var(--syntax-cell); }
+.tok--op { color: var(--syntax-op); }
+.tok--addr { color: var(--color-text-muted); font-weight: 700; }

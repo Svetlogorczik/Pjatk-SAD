@@ -1,0 +1,61 @@
+/* Block: page — a routed view (title, kicker, lead) */
+
+.page {
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.page--wide {
+  max-width: 1100px;
+}
+
+.page--loading {
+  min-height: 50vh;
+}
+
+.page__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.page__kicker-item + .page__kicker-item::before {
+  content: "·";
+  margin-right: var(--space-2);
+}
+
+.page__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+}
+
+.page__lead {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+}
+
+.page__section {
+  margin-top: var(--space-7);
+}
+
+.page__section-title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-xl);
+}
+
+.page__status {
+  padding: var(--space-7) 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.page__status--error {
+  color: var(--color-danger);
+}
